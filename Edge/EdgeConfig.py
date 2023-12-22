@@ -4,8 +4,10 @@ from selenium import webdriver
 from msedge.selenium_tools import Edge, EdgeOptions
 from selenium.webdriver import DesiredCapabilities
 
+from config import COOKIES_DIR, MSEDGEDRIVER_EXE
+
+
 # Configure the Edge driver
-MSEDGEDRIVER_EXE = 'C:\\Users\\dev\\Downloads\\edgedriver_win64\\msedgedriver.exe'
 
 
 def configure_edge():
@@ -54,6 +56,6 @@ def attach_to_session(executor_url, session_id):
 
 
 def load_cookies(driver):
-    cookies = pickle.load(open("../cookies.pkl", "rb"))
+    cookies = pickle.load(open(COOKIES_DIR, "rb"))
     for cookie in cookies:
         driver.add_cookie(cookie)

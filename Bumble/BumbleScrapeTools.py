@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-parentBumbleBioElement_XPATH = '//*[@id="main"]/div/div[1]/main/div[2]/div/div/span/div[1]/article/div[1]'
+from config import PARENT_BUMBLE_BIO_XPATH
 
 
 def find_image(driver, xpath):
@@ -90,6 +90,6 @@ def download_images_from_src(src_list, destination):
 
 
 def download_images_from_bio(driver, des):
-    parent_elem = driver.find_element(By.XPATH, parentBumbleBioElement_XPATH)
+    parent_elem = driver.find_element(By.XPATH, PARENT_BUMBLE_BIO_XPATH)
     src_list = get_list_of_src_from_element(parent_elem)
     download_images_from_src(src_list, des)
