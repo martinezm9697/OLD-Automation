@@ -10,6 +10,11 @@ if __name__ == '__main__':
     sleep(3)
 
     BumbleScrapeTools.download_images_from_bio(driver, IMAGE_DIR+"\\")
+    BumbleScrapeTools.get_bio_name(driver)
+    #var = BumbleScrapeTools.get_bio_aboutMe(driver)
+    #var = BumbleScrapeTools.get_bio_sections(driver)
+
+    #print(var)
 
     driver.close()
 

@@ -9,3 +9,7 @@ def nav_to_bumble():
     EdgeConfig.load_cookies(driver)
     driver.get(BUMBLE_APP)
     return driver
+
+def get_page_html(driver, page):
+    driver.get(page)
+    return driver.page_source

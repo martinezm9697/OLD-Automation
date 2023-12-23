@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e313244-739b-4cc5-a4ac-d97a3d6a1ad7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Archived/methods.py" afterDir="false" />
+    <list default="true" id="6e313244-739b-4cc5-a4ac-d97a3d6a1ad7" name="Changes" comment="add an archive">
+      <change afterPath="$PROJECT_DIR$/selenium/msedgedriver.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archived/methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Archived/methods.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bumble/BumbleScrapeTools.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bumble/BumbleScrapeTools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Edge/EdgeCommands.py" beforeDir="false" afterPath="$PROJECT_DIR$/Edge/EdgeCommands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Edge/EdgeConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Edge/EdgeConfig.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Extra/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extra/TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -40,68 +47,38 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_download_images_from_src.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_badges.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_from_location.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_height.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_lives_in_location.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_name.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_photo_verified.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_BumbleScrapeTools.Test.test_method1.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.EdgeCommands.executor&quot;: &quot;Run&quot;,
     &quot;Python.TEST (1).executor&quot;: &quot;Debug&quot;,
     &quot;Python.TEST.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dev/PycharmProjects/OLD automation/UnitTests&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="TEST (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="OLD Automation" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Extra" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Extra/TEST.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TEST" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="OLD Automation" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TEST.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dev\PycharmProjects\OLD automation\selenium" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_BumbleScrapeTools.Test">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="OLD Automation" />
       <option name="ENV_FILES" value="" />
@@ -125,10 +102,93 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_BumbleScrapeTools.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OLD Automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_BumbleScrapeTools.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_BumbleScrapeTools.Test.test_get_bio_from_location" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OLD Automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_BumbleScrapeTools.Test.test_get_bio_from_location&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_BumbleScrapeTools.Test.test_get_bio_height" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OLD Automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_BumbleScrapeTools.Test.test_get_bio_height&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_BumbleScrapeTools.Test.test_get_bio_lives_in_location" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OLD Automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_BumbleScrapeTools.Test.test_get_bio_lives_in_location&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_BumbleScrapeTools.Test.test_get_bio_state" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OLD Automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_BumbleScrapeTools.Test.test_get_bio_state&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TEST" />
-        <item itemvalue="Python.TEST (1)" />
+        <item itemvalue="Python tests.Python tests for test_BumbleScrapeTools.Test" />
+        <item itemvalue="Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_state" />
+        <item itemvalue="Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_from_location" />
+        <item itemvalue="Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_lives_in_location" />
+        <item itemvalue="Python tests.Python tests for test_BumbleScrapeTools.Test.test_get_bio_height" />
       </list>
     </recent_temporary>
   </component>
@@ -158,24 +218,92 @@
       <workItem from="1703278326309" duration="67000" />
       <workItem from="1703280104477" duration="1516000" />
       <workItem from="1703281769141" duration="2886000" />
+      <workItem from="1703289373919" duration="5702000" />
+      <workItem from="1703306694729" duration="10398000" />
+      <workItem from="1703359196194" duration="157000" />
+      <workItem from="1703359363815" duration="58000" />
+      <workItem from="1703359433613" duration="7138000" />
+      <workItem from="1703366617332" duration="1248000" />
+      <workItem from="1703367880517" duration="483000" />
+      <workItem from="1703368375298" duration="710000" />
+      <workItem from="1703369155546" duration="1284000" />
+      <workItem from="1703370453558" duration="440000" />
     </task>
+    <task id="LOCAL-00001" summary="add an archive">
+      <option name="closed" value="true" />
+      <created>1703289717552</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703289717552</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add an archive" />
+    <option name="LAST_COMMIT_MESSAGE" value="add an archive" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>251</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Extra/TEST.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="7" />
+          <line>13</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/UnitTests/test_BumbleScrapeTools.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/UnitTests/test_BumbleScrapeTools.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
-          <line>245</line>
-          <option name="timeStamp" value="10" />
+          <line>66</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>285</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>308</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>304</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>281</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
+          <line>314</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -186,8 +314,10 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OLD_automation$main.coverage" NAME="main Coverage Results" MODIFIED="1703289147641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OLD_automation$.coverage" NAME=" Coverage Results" MODIFIED="1703370728002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UnitTests" />
+    <SUITE FILE_PATH="coverage/OLD_automation$main.coverage" NAME="main Coverage Results" MODIFIED="1703360699626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OLD_automation$TEST.coverage" NAME="TEST Coverage Results" MODIFIED="1703287933395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/OLD_automation$TEST__1_.coverage" NAME="TEST (1) Coverage Results" MODIFIED="1703287724030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Extra" />
+    <SUITE FILE_PATH="coverage/OLD_automation$EdgeCommands.coverage" NAME="EdgeCommands Coverage Results" MODIFIED="1703307835045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Edge" />
+    <SUITE FILE_PATH="coverage/OLD_automation$TEST__1_.coverage" NAME="TEST (1) Coverage Results" MODIFIED="1703307825634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Extra" />
   </component>
 </project>

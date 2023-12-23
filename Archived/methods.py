@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+from config import PARENT_BUMBLE_BIO_XPATH
+
+
 def find_image(driver, xpath):
     # Find the image using the full XPath
     try:

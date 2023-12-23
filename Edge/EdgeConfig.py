@@ -26,7 +26,8 @@ def configure_edge():
     options.add_argument("--disable-web-security")
 
     # Instantiate the Edge driver with options
-    driver = Edge(executable_path=MSEDGEDRIVER_EXE, options=options)
+    service = webdriver.ChromeService(executable_path=MSEDGEDRIVER_EXE)
+    driver = webdriver.Edge(service=service)
 
     return driver
 
@@ -56,6 +57,8 @@ def attach_to_session(executor_url, session_id):
 
 
 def load_cookies(driver):
-    cookies = pickle.load(open(COOKIES_DIR, "rb"))
+    with open(COOKIES_DIR, "rb") as f:
+        cookies = pickle.load(f)
     for cookie in cookies:
         driver.add_cookie(cookie)
+
