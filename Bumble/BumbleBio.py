@@ -44,6 +44,7 @@ class BumbleBio:
         self.locations = locations
 
     def display_profile(self):
+        print(f"Images Count: {len(self.images)}")
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Occupation: {self.occupation}")
@@ -64,7 +65,7 @@ class BumbleBio:
         print(f"About Me: {self.about_me}")
         print(f"Sections: {self.sections}")
         print(f"Locations: {self.locations}")
-
+        print('\n' )
 
 
 

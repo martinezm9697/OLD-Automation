@@ -14,7 +14,6 @@ if __name__ == '__main__':
     bumbleBio = BumbleAutomation.create_bio(driver)
     print(bumbleBio.display_profile())
 
-
     driver.close()
 
     print('OLD Automation Finished')

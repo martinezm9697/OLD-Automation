@@ -22,28 +22,27 @@ def get_list_of_src_from_element(element):
 
 
 def download_images_from_src(src_list, destination):
+    images = []
     for i, src in enumerate(src_list):
-        # Get the URL of the image
         image_url = 'http:' + src
+        images.append(image_url)
 
-        # Check if the directory exists
         if not os.path.exists(destination):
-            # If the directory doesn't exist, create it
             os.makedirs(destination)
 
-        # Send a GET request to the image URL
         r = requests.get(image_url, stream=True)
         if r.status_code == 200:
-            # If the GET request is successful, the status code will be 200
+
             with open(os.path.join(destination, 'image{}.jpg'.format(i)), 'wb') as f:
                 f.write(r.content)
+    return images
 
 
 def download_images_from_bio(driver, des):
     parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
     src_list = get_list_of_src_from_element(parent_elem)
-    download_images_from_src(src_list, des)
-
+    images = download_images_from_src(src_list, des)
+    return images
 
 def get_bio_name(driver):
     name = driver.find_element(By.CLASS_NAME, 'encounters-story-profile__name')
@@ -51,259 +50,333 @@ def get_bio_name(driver):
 
 
 def get_bio_age(driver):
-    age = driver.find_element(By.CLASS_NAME, 'encounters-story-profile__age')
-    return re.split(r',', age.text)[1].strip(" ")
+    try:
+        age = driver.find_element(By.CLASS_NAME, 'encounters-story-profile__age')
+        age = re.split(r',', age.text)[1].strip(" ")
+        return age
+    except:
+        return ""
 
 
 def get_photo_verified(driver):
-    photo_verified = driver.find_element(By.CLASS_NAME, 'encounters-story-profile__verification-badge')
-    if photo_verified:
-        return True
+    try:
+        photo_verified = driver.find_element(By.CLASS_NAME, 'encounters-story-profile__verification-badge')
+        if photo_verified:
+            return True
+    except:
+        return False
+
 
 
 def get_badges(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    badges_child_elements = (soup.find('ul', 'encounters-story-about__badges')
-                             .find_all('li', 'encounters-story-about__badge'))
+        badges_child_elements = (soup.find('ul', 'encounters-story-about__badges')
+                                 .find_all('li', 'encounters-story-about__badge'))
 
-    badges = []
-    for badge in badges_child_elements:
-        badges.append(badge.text)
-    return badges
+        badges = []
+        for badge in badges_child_elements:
+            badges.append(badge.text)
+        return badges
+    except:
+        return []
 
 
 def get_bio_height(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    height = soup.find('img',
-                       src=re.compile(".*_height.*"))
+        height = soup.find('img',
+                           src=re.compile(".*_height.*"))
 
-    return height['alt']
+        return height['alt']
+    except:
+        return ""
 
 
 def get_bio_occupation(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
-    occupation = soup.find('p', 'encounters-story-profile__occupation')
-    return occupation.text
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        occupation = soup.find('p', 'encounters-story-profile__occupation')
+        return occupation.text
+    except:
+        return ""
 
 
 def get_bio_school(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
-    school = soup.find('p', 'encounters-story-profile__education')
-    return school.text
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        school = soup.find('p', 'encounters-story-profile__education')
+        return school.text
+    except:
+        return ""
 
 
 def get_bio_exercise(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    exercise = soup.find('img',
-                         src=re.compile(".*_exercise.*"))
-    return exercise['alt']
+        exercise = soup.find('img',
+                             src=re.compile(".*_exercise.*"))
+        return exercise['alt']
+    except:
+        return ""
 
 
 def get_bio_education(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    education = soup.find('img',
-                          src=re.compile(".*_education.*"))
-    return education['alt']
+        education = soup.find('img',
+                              src=re.compile(".*_education.*"))
+        return education['alt']
+    except:
+        return ""
 
 
 def get_bio_drinking(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    drinking = soup.find('img',
-                         src=re.compile(".*_drinking.*"))
-    return drinking['alt']
+        drinking = soup.find('img',
+                             src=re.compile(".*_drinking.*"))
+        return drinking['alt']
+    except:
+        return ""
 
 
 def get_bio_smoking(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    smoking = soup.find('img',
-                        src=re.compile(".*_smoking.*"))
-    return smoking['alt']
+        smoking = soup.find('img',
+                            src=re.compile(".*_smoking.*"))
+        return smoking['alt']
+    except:
+        return ""
 
 
 def get_bio_gender(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    politics = soup.find('img',
-                         src=re.compile(".*_gender.*"))
-    return politics['alt']
+        politics = soup.find('img',
+                             src=re.compile(".*_gender.*"))
+        return politics['alt']
+    except:
+        return ""
 
 
 def get_bio_intentions(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
-    dating_intentions = soup.find('img',
-                                  src=re.compile(".*_intentions.*"))
-    return dating_intentions['alt']
+        try:
+            parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+            html = parent_elem.get_attribute('innerHTML')
+            soup = BeautifulSoup(html, 'html.parser')
+            dating_intentions = soup.find('img',
+                                          src=re.compile(".*_intentions.*"))
+            return dating_intentions['alt']
+        except:
+            return ""
 
 
 def get_bio_family_plans(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    kids = soup.find('img',
-                     src=re.compile(".*_familyPlans.*"))
-    return kids['alt']
+        kids = soup.find('img',
+                         src=re.compile(".*_familyPlans.*"))
+        return kids['alt']
+    except:
+        return ""
 
 
 def get_bio_star_sign(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
-    sign = soup.find('img',
-                     src=re.compile(".*_starSign.*"))
-    return sign['alt']
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        sign = soup.find('img',
+                         src=re.compile(".*_starSign.*"))
+        return sign['alt']
+    except:
+        return ""
 
 
 def get_bio_politics(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    politics = soup.find('img',
-                         src=re.compile(".*_Politics.*"))
-    return politics['alt']
+        politics = soup.find('img',
+                             src=re.compile(".*_Politics.*"))
+        return politics['alt']
+    except:
+        return ""
 
 
 def get_bio_religion(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
-    religion = soup.find('img',
-                         src=re.compile(".*_religion.*"))
-    return religion['alt']
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        religion = soup.find('img',
+                             src=re.compile(".*_religion.*"))
+        return religion['alt']
+    except:
+        return ""
 
 
 def get_bio_about_me(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    header = ((soup.find('section', 'encounters-story-section encounters-story-section--about')
-               .find('h2', "p-2 font-weight-medium"))
-              .next_element.text)
-    text = ((soup.find('section', 'encounters-story-section encounters-story-section--about')
-             .find('p', "encounters-story-about__text"))
-            .next_element.text)
+        header = ((soup.find('section', 'encounters-story-section encounters-story-section--about')
+                   .find('h2', "p-2 font-weight-medium"))
+                  .next_element.text)
+        text = ((soup.find('section', 'encounters-story-section encounters-story-section--about')
+                 .find('p', "encounters-story-about__text"))
+                .next_element.text)
 
-    about_me = header + os.linesep + text
+        about_me = header + os.linesep + text
 
-    return about_me
+        return about_me
+    except:
+        return ""
 
 
 def get_bio_sections(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    sectionsElements = soup.find_all('section', 'encounters-story-section encounters-story-section--question')
+        sectionsElements = soup.find_all('section', 'encounters-story-section encounters-story-section--question')
 
-    sections = []
-    for section in sectionsElements:
-        section_header = section.find('h2', "p-2 font-weight-medium").next_element.text
-        section_text = section.find('p', "encounters-story-about__text").next_element.text
-        sections.append(section_header + '\n' + section_text)
+        sections = []
+        for section in sectionsElements:
+            section_header = section.find('h2', "p-2 font-weight-medium").next_element.text
+            section_text = section.find('p', "encounters-story-about__text").next_element.text
+            sections.append(section_header + '\n' + section_text)
 
-    return sections
+        return sections
+    except:
+        return []
 
 
 def get_location_pills(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
 
-    html = parent_elem.get_attribute('innerHTML')
+        html = parent_elem.get_attribute('innerHTML')
 
-    soup = BeautifulSoup(html, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
-    location_pills = soup.find_all('div', 'location-widget__info')
+        location_pills = soup.find_all('div', 'location-widget__info')
 
-    return location_pills
+        return location_pills
+    except:
+        return []
 
 
 def get_bio_current_location(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    html = parent_elem.get_attribute('innerHTML')
-    soup = BeautifulSoup(html, 'html.parser')
-    current_location = (soup.find('div', 'location-widget__town')
-                        .find('span', 'header-2 text-color-black')).text
-    return current_location
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        current_location = (soup.find('div', 'location-widget__town')
+                            .find('span', 'header-2 text-color-black')).text
+        return current_location
+    except:
+        return ""
 
 
 def get_bio_lives_in_location(driver):
-    parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-    parent_elem = get_location_pills(driver)[0]
-    for elem in parent_elem:
-        lives_in = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
-        if lives_in.__contains__("Lives in"):
-            lives_in = re.split(r'.*Lives in', lives_in)[1]
-            return lives_in.strip(" ")
-        else:
-            continue
+    try:
+        parent_elem = get_location_pills(driver)[0]
+        for elem in parent_elem:
+            lives_in = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
+            if lives_in.__contains__("Lives in"):
+                lives_in = re.split(r'.*Lives in', lives_in)[1]
+                return lives_in.strip(" ")
+            else:
+                continue
+    except:
+        return ""
 
 
 def get_bio_city(driver):
-    return get_bio_lives_in_location(driver).split(",")[0].strip(" ")
-
+    try:
+        return get_bio_lives_in_location(driver).split(",")[0].strip(" ")
+    except:
+        return ""
 
 def get_bio_state(driver):
-    return get_bio_lives_in_location(driver).split(",")[1].strip(" ")
-
+    try:
+        return get_bio_lives_in_location(driver).split(",")[1].strip(" ")
+    except:
+        return ""
 
 def get_bio_from_location(driver):
-    parent_elem = get_location_pills(driver)[0]
-    for elem in parent_elem:
-        from_location = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
-        if from_location.__contains__("From"):
-            from_location = re.split(r'.*From', from_location)[1]
-            return from_location.strip(" ")
-        else:
-            continue
+    try:
+        parent_elem = get_location_pills(driver)[0]
+        for elem in parent_elem:
+            from_location = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
+            if from_location.__contains__("From"):
+                from_location = re.split(r'.*From', from_location)[1]
+                return from_location.strip(" ")
+            else:
+                continue
+    except:
+        return ""
 
 
 def get_bio_locations(driver):
-    locations = []
-    locations.append(get_bio_current_location(driver))
-    locations.append(get_bio_lives_in_location(driver))
-    locations.append(get_bio_from_location(driver))
-    return locations
+    try:
+        locations = []
+        locations.append(get_bio_current_location(driver))
+        locations.append(get_bio_lives_in_location(driver))
+        locations.append(get_bio_from_location(driver))
+        return locations
+    except:
+        return []
