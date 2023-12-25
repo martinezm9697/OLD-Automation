@@ -1,4 +1,4 @@
-DEALBREAKERS = ["Ig:"]
+DEALBREAKERS = ["Ig:", "Sc:", "Snap:", "Insta:"]
 
 NAMES = []
 

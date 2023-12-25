@@ -292,10 +292,7 @@ def bio_has_dealbreaker(bio):
         return False
 
 
-def rate_bio(bio):
-    if bio_has_dealbreaker(bio):
-        return 0
-
+def sum_bio_ratings(bio):
     rating = \
         rate_bio_name(bio) + \
         rate_bio_age(bio) + \
@@ -314,7 +311,5 @@ def rate_bio(bio):
         rate_bio_politics(bio) + \
         rate_bio_religion(bio) + \
         rate_bio_words(bio)
-
-    print(bio.name + " has a rating of " + str(rating))
 
     return rating

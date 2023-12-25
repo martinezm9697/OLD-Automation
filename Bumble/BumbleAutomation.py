@@ -1,11 +1,14 @@
+from time import sleep
+
 from Bumble.BumbleBio import BumbleBio
 from Bumble import BumbleScrapeTools as Scrape, BumbleRating
+from Bumble.BumbleRating import sum_bio_ratings
 from Edge import EdgeCommands
 from config import IMAGE_DIR
 
 
 def create_bio(driver):
-    bumbleBio = BumbleBio(
+    bumble_bio = BumbleBio(
         Scrape.download_images_from_bio(driver, IMAGE_DIR + "\\"),
         Scrape.get_bio_name(driver),
         Scrape.get_bio_age(driver),
@@ -28,7 +31,7 @@ def create_bio(driver):
         Scrape.get_bio_sections(driver),
         Scrape.get_bio_locations(driver)
     )
-    return bumbleBio
+    return bumble_bio
 
 
 def like_bio(driver):
@@ -45,25 +48,27 @@ def rate_bio(bio):
     if BumbleRating.bio_has_dealbreaker(bio):
         return 0
 
-    rating = \
-        BumbleRating.rate_bio_name(bio) + \
-        BumbleRating.rate_bio_age(bio) + \
-        BumbleRating.rate_bio_photo_verified(bio) + \
-        BumbleRating.rate_bio_occupation(bio) + \
-        BumbleRating.rate_bio_school(bio) + \
-        BumbleRating.rate_bio_height(bio) + \
-        BumbleRating.rate_bio_exercise(bio) + \
-        BumbleRating.rate_bio_education(bio) + \
-        BumbleRating.rate_bio_drinking(bio) + \
-        BumbleRating.rate_bio_smoking(bio) + \
-        BumbleRating.rate_bio_gender(bio) + \
-        BumbleRating.rate_bio_intentions(bio) + \
-        BumbleRating.rate_bio_family_plans(bio) + \
-        BumbleRating.rate_bio_star_sign(bio) + \
-        BumbleRating.rate_bio_politics(bio) + \
-        BumbleRating.rate_bio_religion(bio) + \
-        BumbleRating.rate_bio_words(bio)
+    rating = sum_bio_ratings(bio)
 
     print(bio.name + " has a rating of " + str(rating))
 
     return rating
+
+def rate_bios_until_end(driver):
+    while True:
+        try:
+            bumble_bio = create_bio(driver)
+            bumble_bio.display_profile()
+            rating = rate_bio(bumble_bio)
+            if rating > 5:
+                print("Liking " + bumble_bio.name)
+                like_bio(driver)
+            else:
+                print("Passing " + bumble_bio.name)
+                pass_bio(driver)
+            sleep(2)
+        except:
+            print("error")
+            pass_bio(driver)
+            sleep(3)
+            return False

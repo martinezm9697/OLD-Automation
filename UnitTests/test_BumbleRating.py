@@ -88,6 +88,6 @@ class Test(TestCase):
         assert (Brate.bio_has_dealbreaker(self.dealbreakerBio)).__eq__(True)
 
     def test_rate_bio(self):
-        assert (Brate.rate_bio(self.goodBio) > 1)
-        assert (Brate.rate_bio(self.dealbreakerBio).__eq__(0))
-        assert (Brate.rate_bio(self.sampleBio) > 0)
+        assert (Brate.sum_bio_ratings(self.goodBio) > 1)
+        assert (Brate.sum_bio_ratings(self.dealbreakerBio).__eq__(0))
+        assert (Brate.sum_bio_ratings(self.sampleBio) > 0)
