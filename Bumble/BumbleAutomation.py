@@ -28,3 +28,4 @@ def create_bio(driver):
         Scrape.get_bio_locations(driver)
     )
     return bumbleBio
+

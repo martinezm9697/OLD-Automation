@@ -25,10 +25,10 @@ class BumbleBio:
         self.name = name
         self.age = age
         self.photo_verified = photo_verified
-        self.badges = badges
-        self.height = height
         self.occupation = occupation
         self.school = school
+        self.badges = badges
+        self.height = height
         self.exercise = exercise
         self.education = education
         self.drinking = drinking
@@ -47,11 +47,11 @@ class BumbleBio:
         print(f"Images Count: {len(self.images)}")
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
-        print(f"Occupation: {self.occupation}")
         print(f"Photo Verified: {self.photo_verified}")
+        print(f"Occupation: {self.occupation}")
+        print(f"School: {self.school}")
         print(f"Badges: {self.badges}")
         print(f"Height: {self.height}")
-        print(f"School: {self.school}")
         print(f"Exercise: {self.exercise}")
         print(f"Education: {self.education}")
         print(f"Drinking: {self.drinking}")
@@ -65,7 +65,7 @@ class BumbleBio:
         print(f"About Me: {self.about_me}")
         print(f"Sections: {self.sections}")
         print(f"Locations: {self.locations}")
-        print('\n' )
+        print('\n')
 
 
 
