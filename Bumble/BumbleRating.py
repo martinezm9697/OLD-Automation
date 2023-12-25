@@ -1,5 +1,5 @@
-from Extra import PreferedMatchConfig as Preferred
-from Extra.PreferedMatchConfig import DEALBREAKERS
+from Config import PreferedMatchConfig as Preferred
+from Config.PreferedMatchConfig import DEALBREAKERS
 
 #locations are not rated
 #badges are not rated

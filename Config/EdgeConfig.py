@@ -1,10 +1,10 @@
 import pickle
 
 from selenium import webdriver
-from msedge.selenium_tools import Edge, EdgeOptions
+from msedge.selenium_tools import EdgeOptions
 from selenium.webdriver import DesiredCapabilities
 
-from config import COOKIES_DIR, MSEDGEDRIVER_EXE
+from Config.Config import COOKIES_DIR, MSEDGEDRIVER_EXE
 
 
 # Configure the Edge driver

@@ -1,6 +1,6 @@
 import pickle
-from Edge import EdgeConfig
-from config import COOKIES_DIR, BUMBLE_WEBSITE
+from Config import EdgeConfig
+from Config.Config import COOKIES_DIR, BUMBLE_WEBSITE
 
 driver = EdgeConfig.configure_edge()
 driver.get(BUMBLE_WEBSITE)

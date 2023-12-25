@@ -1,12 +1,7 @@
-from telnetlib import EC
-from time import sleep
-
-from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 
-import Edge.EdgeConfig as EdgeConfig
-from config import BUMBLE_WEBSITE, BUMBLE_APP, BUMBLE_LIKE_BUTTON_CLASS, BUMBLE_PASS_BUTTON_CLASS, \
+import Config.EdgeConfig as EdgeConfig
+from Config.Config import BUMBLE_WEBSITE, BUMBLE_APP, BUMBLE_LIKE_BUTTON_CLASS, BUMBLE_PASS_BUTTON_CLASS, \
     BUMBLE_SUPERLIKE_BUTTON_CLASS
 
 

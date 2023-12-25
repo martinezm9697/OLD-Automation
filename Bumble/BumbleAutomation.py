@@ -4,7 +4,7 @@ from Bumble.BumbleBio import BumbleBio
 from Bumble import BumbleScrapeTools as Scrape, BumbleRating
 from Bumble.BumbleRating import sum_bio_ratings
 from Edge import EdgeCommands
-from config import IMAGE_DIR
+from Config.Config import IMAGE_DIR
 
 
 def create_bio(driver):
@@ -67,3 +67,4 @@ def rate_bios_until_end(driver):
             print("Passing " + bumble_bio.name)
             pass_bio(driver)
         sleep(2)
+

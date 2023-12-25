@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
-from config import PARENT_BUMBLE_CLASS_NAME
+from Config.Config import PARENT_BUMBLE_CLASS_NAME
 
 
 def get_list_of_src_from_element(element):

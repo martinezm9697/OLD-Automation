@@ -1,10 +1,6 @@
 from time import sleep
 from unittest import TestCase
 
-from selenium.webdriver.common.by import By
-
-from config import BUMBLE_APP
-
 import Edge.EdgeCommands as Edge
 
 

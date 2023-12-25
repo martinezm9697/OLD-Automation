@@ -2,12 +2,11 @@ import re
 from time import sleep
 from unittest import TestCase
 
-import pytest
 from selenium.webdriver.common.by import By
 
 import Edge.EdgeCommands as Edge
 from Bumble import BumbleScrapeTools
-from config import TEST_BIO_PAGE, IMAGE_DIR
+from Config.Config import TEST_BIO_PAGE, IMAGE_DIR
 
 class Test(TestCase):
     @classmethod

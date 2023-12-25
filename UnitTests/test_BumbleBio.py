@@ -1,8 +1,4 @@
-from time import sleep
-from unittest import TestCase
-
 from Bumble.BumbleBio import BumbleBio
-from Edge import EdgeCommands
 from Bumble import BumbleScrapeTools as Bscrape
 from time import sleep
 from unittest import TestCase
@@ -10,7 +6,7 @@ from unittest import TestCase
 from selenium.webdriver.common.by import By
 
 import Edge.EdgeCommands as Edge
-from config import TEST_BIO_PAGE, IMAGE_DIR
+from Config.Config import TEST_BIO_PAGE, IMAGE_DIR
 
 class Test(TestCase):
     @classmethod
