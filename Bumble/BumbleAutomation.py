@@ -54,21 +54,16 @@ def rate_bio(bio):
 
     return rating
 
+
 def rate_bios_until_end(driver):
     while True:
-        try:
-            bumble_bio = create_bio(driver)
-            bumble_bio.display_profile()
-            rating = rate_bio(bumble_bio)
-            if rating > 5:
-                print("Liking " + bumble_bio.name)
-                like_bio(driver)
-            else:
-                print("Passing " + bumble_bio.name)
-                pass_bio(driver)
-            sleep(2)
-        except:
-            print("error")
+        bumble_bio = create_bio(driver)
+        bumble_bio.display_profile()
+        rating = rate_bio(bumble_bio)
+        if rating > 5:
+            print("Liking " + bumble_bio.name)
+            like_bio(driver)
+        else:
+            print("Passing " + bumble_bio.name)
             pass_bio(driver)
-            sleep(3)
-            return False
+        sleep(2)

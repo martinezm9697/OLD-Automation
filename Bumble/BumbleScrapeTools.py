@@ -32,7 +32,6 @@ def download_images_from_src(src_list, destination):
 
         r = requests.get(image_url, stream=True)
         if r.status_code == 200:
-
             with open(os.path.join(destination, 'image{}.jpg'.format(i)), 'wb') as f:
                 f.write(r.content)
     return images
@@ -43,6 +42,7 @@ def download_images_from_bio(driver, des):
     src_list = get_list_of_src_from_element(parent_elem)
     images = download_images_from_src(src_list, des)
     return images
+
 
 def get_bio_name(driver):
     name = driver.find_element(By.CLASS_NAME, 'encounters-story-profile__name')
@@ -65,7 +65,6 @@ def get_photo_verified(driver):
             return True
     except:
         return False
-
 
 
 def get_badges(driver):
@@ -200,15 +199,15 @@ def get_bio_gender(driver):
 
 
 def get_bio_intentions(driver):
-        try:
-            parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-            html = parent_elem.get_attribute('innerHTML')
-            soup = BeautifulSoup(html, 'html.parser')
-            dating_intentions = soup.find('img',
-                                          src=re.compile(".*_intentions.*"))
-            return dating_intentions['alt']
-        except:
-            return ""
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+        html = parent_elem.get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        dating_intentions = soup.find('img',
+                                      src=re.compile(".*_intentions.*"))
+        return dating_intentions['alt']
+    except:
+        return ""
 
 
 def get_bio_family_plans(driver):
@@ -304,21 +303,6 @@ def get_bio_sections(driver):
         return []
 
 
-def get_location_pills(driver):
-    try:
-        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
-
-        html = parent_elem.get_attribute('innerHTML')
-
-        soup = BeautifulSoup(html, 'html.parser')
-
-        location_pills = soup.find_all('div', 'location-widget__info')
-
-        return location_pills
-    except:
-        return []
-
-
 def get_bio_current_location(driver):
     try:
         parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
@@ -332,43 +316,30 @@ def get_bio_current_location(driver):
 
 
 def get_bio_lives_in_location(driver):
-    try:
-        parent_elem = get_location_pills(driver)[0]
-        for elem in parent_elem:
-            lives_in = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
-            if lives_in.__contains__("Lives in"):
-                lives_in = re.split(r'.*Lives in', lives_in)[1]
-                return lives_in.strip(" ")
-            else:
-                continue
-    except:
-        return ""
+    lives_in = ""
+    parent_elem = get_location_pills(driver)[0]
+    for elem in parent_elem:
+        lives_in = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
+        if lives_in.__contains__("Lives in"):
+            lives_in = re.split(r'.*Lives in', lives_in)[1]
+            return lives_in.strip(" ")
+        else:
+            continue
+    return lives_in
 
 
-def get_bio_city(driver):
-    try:
-        return get_bio_lives_in_location(driver).split(",")[0].strip(" ")
-    except:
-        return ""
-
-def get_bio_state(driver):
-    try:
-        return get_bio_lives_in_location(driver).split(",")[1].strip(" ")
-    except:
-        return ""
 
 def get_bio_from_location(driver):
-    try:
-        parent_elem = get_location_pills(driver)[0]
-        for elem in parent_elem:
-            from_location = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
-            if from_location.__contains__("From"):
-                from_location = re.split(r'.*From', from_location)[1]
-                return from_location.strip(" ")
-            else:
-                continue
-    except:
-        return ""
+    from_location = ""
+    parent_elem = get_location_pills(driver)[0]
+    for elem in parent_elem:
+        from_location = (elem.find('div', 'p-3 text-ellipsis font-weight-medium')).text
+        if from_location.__contains__("From"):
+            from_location = re.split(r'.*From', from_location)[1]
+            return from_location.strip(" ")
+        else:
+            continue
+    return from_location
 
 
 def get_bio_locations(driver):
@@ -378,5 +349,34 @@ def get_bio_locations(driver):
         locations.append(get_bio_lives_in_location(driver))
         locations.append(get_bio_from_location(driver))
         return locations
+    except:
+        return []
+
+
+def get_bio_city(driver):
+    try:
+        return get_bio_lives_in_location(driver).split(",")[0].strip(" ")
+    except:
+        return ""
+
+
+def get_bio_state(driver):
+    try:
+        return get_bio_lives_in_location(driver).split(",")[1].strip(" ")
+    except:
+        return ""
+
+
+def get_location_pills(driver):
+    try:
+        parent_elem = driver.find_element(By.CLASS_NAME, PARENT_BUMBLE_CLASS_NAME)
+
+        html = parent_elem.get_attribute('innerHTML')
+
+        soup = BeautifulSoup(html, 'html.parser')
+
+        location_pills = soup.find_all('div', 'location-widget__info')
+
+        return location_pills
     except:
         return []

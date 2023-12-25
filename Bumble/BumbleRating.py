@@ -9,7 +9,7 @@ def rate_bio_name(bio):
     if Preferred.NAMES is None:
         return 0
 
-    if bio.name in Preferred.NAMES:
+    if bio.name.lower() in to_lower_case(Preferred.NAMES):
         return 1
     else:
         return 0
@@ -45,7 +45,7 @@ def rate_bio_occupation(bio):
     if Preferred.OCCUPATIONS is None:
         return 0
 
-    if bio.occupation in Preferred.OCCUPATIONS:
+    if bio.occupation.lower() in to_lower_case(Preferred.OCCUPATIONS):
         return 1
     else:
         return 0
@@ -58,7 +58,7 @@ def rate_bio_school(bio):
     if Preferred.SCHOOLS is None:
         return 0
 
-    if bio.school in Preferred.SCHOOLS:
+    if bio.school in to_lower_case(Preferred.SCHOOLS):
         return 1
     else:
         return 0
@@ -81,7 +81,7 @@ def rate_bio_exercise(bio):
     if Preferred.EXERCISE is None:
         return 0
 
-    if bio.exercise in Preferred.EXERCISE:
+    if bio.exercise in to_lower_case(Preferred.EXERCISE):
         return 1
     else:
         return 0
@@ -94,7 +94,7 @@ def rate_bio_education(bio):
     if Preferred.EDUCATION is None:
         return 0
 
-    if bio.education in Preferred.EDUCATION:
+    if bio.education in to_lower_case(Preferred.EDUCATION):
         return 1
     else:
         return 0
@@ -107,7 +107,7 @@ def rate_bio_drinking(bio):
     if Preferred.DRINKING is None:
         return 0
 
-    if bio.drinking in Preferred.DRINKING:
+    if bio.drinking in to_lower_case(Preferred.DRINKING):
         return 1
     else:
         return 0
@@ -120,7 +120,7 @@ def rate_bio_smoking(bio):
     if Preferred.SMOKING is None:
         return 0
 
-    if bio.smoking in Preferred.SMOKING:
+    if bio.smoking in to_lower_case(Preferred.SMOKING):
         return 1
     else:
         return 0
@@ -133,7 +133,7 @@ def rate_bio_gender(bio):
     if Preferred.GENDER is None:
         return 0
 
-    if bio.gender in Preferred.GENDER:
+    if bio.gender in to_lower_case(Preferred.GENDER):
         return 1
     else:
         return 0
@@ -146,7 +146,7 @@ def rate_bio_intentions(bio):
     if Preferred.INTENTIONS is None:
         return 0
 
-    if bio.intentions in Preferred.INTENTIONS:
+    if bio.intentions in to_lower_case(Preferred.INTENTIONS):
         return 1
     else:
         return 0
@@ -159,7 +159,7 @@ def rate_bio_family_plans(bio):
     if Preferred.FAMILY_PLANS is None:
         return 0
 
-    if bio.family_plans in Preferred.FAMILY_PLANS:
+    if bio.family_plans in to_lower_case(Preferred.FAMILY_PLANS):
         return 1
     else:
         return 0
@@ -172,7 +172,7 @@ def rate_bio_star_sign(bio):
     if Preferred.STAR_SIGN is None:
         return 0
 
-    if bio.star_sign in Preferred.STAR_SIGN:
+    if bio.star_sign in to_lower_case(Preferred.STAR_SIGN):
         return 1
     else:
         return 0
@@ -185,7 +185,7 @@ def rate_bio_politics(bio):
     if Preferred.POLITICS is None:
         return 0
 
-    if bio.politics in Preferred.POLITICS:
+    if bio.politics in to_lower_case(Preferred.POLITICS):
         return 1
     else:
         return 0
@@ -198,7 +198,7 @@ def rate_bio_religion(bio):
     if Preferred.RELIGION is None:
         return 0
 
-    if bio.religion in Preferred.RELIGION:
+    if bio.religion in to_lower_case(Preferred.RELIGION):
         return 1
     else:
         return 0
@@ -206,7 +206,7 @@ def rate_bio_religion(bio):
 
 def rate_bio_words(bio):
     score = 0
-    for keyword in Preferred.KEYWORDS:
+    for keyword in to_lower_case(Preferred.KEYWORDS):
         if keyword in bio.about_me:
             score += 1
         for section in bio.sections:
@@ -218,70 +218,73 @@ def rate_bio_words(bio):
 def bio_has_dealbreaker(bio):
     dealbreaker_list = []
     for dealbreaker in DEALBREAKERS:
-        if dealbreaker in bio.name:
+        dealbreaker = dealbreaker.lower()
+
+        if dealbreaker in bio.name.lower():
             print("deal breaker found in name: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.occupation:
+        if dealbreaker in bio.occupation.lower():
             print("deal breaker found in occupation: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.school:
+        if dealbreaker in bio.school.lower():
             print("deal breaker found in school: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.exercise:
+        if dealbreaker in bio.exercise.lower():
             print("deal breaker found in exercise: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.education:
+        if dealbreaker in bio.education.lower():
             print("deal breaker found in education: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.drinking:
+        if dealbreaker in bio.drinking.lower():
             print("deal breaker found in drinking: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.smoking:
+        if dealbreaker in bio.smoking.lower():
             print("deal breaker found in smoking: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.gender:
+        if dealbreaker in bio.gender.lower():
             print("deal breaker found in gender: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.intentions:
+        if dealbreaker in bio.intentions.lower():
             print("deal breaker found in intentions: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.family_plans:
+        if dealbreaker in bio.family_plans.lower():
             print("deal breaker found in family_plans: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.star_sign:
+        if dealbreaker in bio.star_sign.lower():
             print("deal breaker found in star_sign: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.politics:
+        if dealbreaker in bio.politics.lower():
             print("deal breaker found in politics: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.religion:
+        if dealbreaker in bio.religion.lower():
             print("deal breaker found in religion: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.about_me:
+        if dealbreaker in bio.about_me.lower():
             print("deal breaker found in about_me: " + dealbreaker)
             dealbreaker_list.append(dealbreaker)
 
         for section in bio.sections:
-            if dealbreaker in section:
+            if dealbreaker in section.lower():
                 print("deal breaker found in section: " + dealbreaker)
                 dealbreaker_list.append(dealbreaker)
 
-        if dealbreaker in bio.locations:
-            print("deal breaker found in locations: " + dealbreaker)
-            dealbreaker_list.append(dealbreaker)
+        for location in bio.locations:
+            if dealbreaker in location.lower():
+                print("deal breaker found in locations: " + dealbreaker)
+                dealbreaker_list.append(dealbreaker)
 
     if len(dealbreaker_list) > 0:
         print("deal breaker found in " + bio.name + "'s bio: ")
@@ -313,3 +316,7 @@ def sum_bio_ratings(bio):
         rate_bio_words(bio)
 
     return rating
+
+
+def to_lower_case(lst):
+    return [element.lower() for element in lst]
