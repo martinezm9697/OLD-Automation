@@ -97,7 +97,7 @@ def rate_bio_education(bio):
     if bio.education in Preferred.EDUCATION:
         return 1
     else:
-        return
+        return 0
 
 
 def rate_bio_drinking(bio):
@@ -215,28 +215,6 @@ def rate_bio_words(bio):
     return score
 
 
-def rate_bio(bio):
-    rating = \
-        rate_bio_name(bio) + \
-        rate_bio_age(bio) + \
-        rate_bio_photo_verified(bio) + \
-        rate_bio_occupation(bio) + \
-        rate_bio_school(bio) + \
-        rate_bio_height(bio) + \
-        rate_bio_exercise(bio) + \
-        rate_bio_education(bio) + \
-        rate_bio_drinking(bio) + \
-        rate_bio_smoking(bio) + \
-        rate_bio_gender(bio) + \
-        rate_bio_intentions(bio) + \
-        rate_bio_family_plans(bio) + \
-        rate_bio_star_sign(bio) + \
-        rate_bio_politics(bio) + \
-        rate_bio_religion(bio) + \
-        rate_bio_words(bio)
-
-    return rating
-
 def bio_has_dealbreaker(bio):
     dealbreaker_list = []
     for dealbreaker in DEALBREAKERS:
@@ -306,11 +284,37 @@ def bio_has_dealbreaker(bio):
             dealbreaker_list.append(dealbreaker)
 
     if len(dealbreaker_list) > 0:
-        print("deal breaker found in bio: ")
+        print("deal breaker found in " + bio.name + "'s bio: ")
         print(dealbreaker_list)
         return True
     else:
-        print("no deal breaker found in bio")
+        print("no deal breaker found in " + bio.name + "'s bio")
         return False
 
 
+def rate_bio(bio):
+    if bio_has_dealbreaker(bio):
+        return 0
+
+    rating = \
+        rate_bio_name(bio) + \
+        rate_bio_age(bio) + \
+        rate_bio_photo_verified(bio) + \
+        rate_bio_occupation(bio) + \
+        rate_bio_school(bio) + \
+        rate_bio_height(bio) + \
+        rate_bio_exercise(bio) + \
+        rate_bio_education(bio) + \
+        rate_bio_drinking(bio) + \
+        rate_bio_smoking(bio) + \
+        rate_bio_gender(bio) + \
+        rate_bio_intentions(bio) + \
+        rate_bio_family_plans(bio) + \
+        rate_bio_star_sign(bio) + \
+        rate_bio_politics(bio) + \
+        rate_bio_religion(bio) + \
+        rate_bio_words(bio)
+
+    print(bio.name + " has a rating of " + str(rating))
+
+    return rating

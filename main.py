@@ -14,7 +14,15 @@ if __name__ == '__main__':
     bumbleBio = BumbleAutomation.create_bio(driver)
     print(bumbleBio.display_profile())
 
-    bio_rating = Brate.rate_bio(bumbleBio)
+    #bio_rating = Brate.rate_bio(bumbleBio)
+    bio_rating = BumbleAutomation.rate_bio(bumbleBio)
+
+    if bio_rating >= 5:
+        print("Liking " + bumbleBio.name)
+        BumbleAutomation.like_bio(driver)
+    else:
+        print("Passing " + bumbleBio.name)
+        BumbleAutomation.pass_bio(driver)
 
     driver.close()
 

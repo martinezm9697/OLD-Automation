@@ -1,5 +1,6 @@
 from Bumble.BumbleBio import BumbleBio
-from Bumble import BumbleScrapeTools as Scrape
+from Bumble import BumbleScrapeTools as Scrape, BumbleRating
+from Edge import EdgeCommands
 from config import IMAGE_DIR
 
 
@@ -29,3 +30,40 @@ def create_bio(driver):
     )
     return bumbleBio
 
+
+def like_bio(driver):
+    EdgeCommands.click_bumble_like_button(driver)
+    print("liked bio")
+
+
+def pass_bio(driver):
+    EdgeCommands.click_bumble_pass_button(driver)
+    print("passed bio")
+
+
+def rate_bio(bio):
+    if BumbleRating.bio_has_dealbreaker(bio):
+        return 0
+
+    rating = \
+        BumbleRating.rate_bio_name(bio) + \
+        BumbleRating.rate_bio_age(bio) + \
+        BumbleRating.rate_bio_photo_verified(bio) + \
+        BumbleRating.rate_bio_occupation(bio) + \
+        BumbleRating.rate_bio_school(bio) + \
+        BumbleRating.rate_bio_height(bio) + \
+        BumbleRating.rate_bio_exercise(bio) + \
+        BumbleRating.rate_bio_education(bio) + \
+        BumbleRating.rate_bio_drinking(bio) + \
+        BumbleRating.rate_bio_smoking(bio) + \
+        BumbleRating.rate_bio_gender(bio) + \
+        BumbleRating.rate_bio_intentions(bio) + \
+        BumbleRating.rate_bio_family_plans(bio) + \
+        BumbleRating.rate_bio_star_sign(bio) + \
+        BumbleRating.rate_bio_politics(bio) + \
+        BumbleRating.rate_bio_religion(bio) + \
+        BumbleRating.rate_bio_words(bio)
+
+    print(bio.name + " has a rating of " + str(rating))
+
+    return rating
