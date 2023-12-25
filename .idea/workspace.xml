@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e313244-739b-4cc5-a4ac-d97a3d6a1ad7" name="Changes" comment="add loop for bumble automation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bumble/BumbleAutomation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bumble/BumbleAutomation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bumble/BumbleRating.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bumble/BumbleRating.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bumble/BumbleScrapeTools.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bumble/BumbleScrapeTools.py" afterDir="false" />
+    <list default="true" id="6e313244-739b-4cc5-a4ac-d97a3d6a1ad7" name="Changes" comment="rate bio using lowercase">
+      <change afterPath="$PROJECT_DIR$/UnitTests/test_BumbleAutomation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Extra/PreferedMatchConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extra/PreferedMatchConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/test_BumbleRating.py" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/test_BumbleRating.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +41,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test_BumbleAutomation.Test.test_rate_bios_until_end.executor": "Run",
     "Python tests.Python tests for test_BumbleBio.Test.executor": "Run",
     "Python tests.Python tests for test_BumbleBio.Test.test_display_profile.executor": "Run",
     "Python tests.Python tests for test_BumbleRating.Test.executor": "Debug",
@@ -84,7 +83,7 @@
       <recent name="C:\Users\dev\PycharmProjects\OLD automation\selenium" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.Python tests for test_BumbleAutomation.Test.test_rate_bios_until_end">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="OLD Automation" />
       <option name="ENV_FILES" value="" />
@@ -108,6 +107,23 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_BumbleAutomation.Test.test_rate_bios_until_end" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="OLD Automation" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\dev\PycharmProjects\OLD Automation\.venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11 (OLD Automation)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_BumbleAutomation.Test.test_rate_bios_until_end&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_BumbleRating.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="OLD Automation" />
       <option name="ENV_FILES" value="" />
@@ -122,23 +138,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_BumbleRating.Test&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_BumbleRating.Test.test_bio_has_dealbreaker" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="OLD Automation" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\Users\dev\PycharmProjects\OLD Automation\.venv\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.11 (OLD Automation)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UnitTests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_BumbleRating.Test.test_bio_has_dealbreaker&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -270,19 +269,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.Python tests for test_BumbleAutomation.Test.test_rate_bios_until_end" />
       <item itemvalue="Python tests.Python tests for test_EdgeCommands.Test" />
       <item itemvalue="Python tests.Python tests for test_BumbleRating.Test" />
-      <item itemvalue="Python tests.Python tests for test_BumbleRating.Test.test_bio_has_dealbreaker" />
       <item itemvalue="Python tests.Python tests for test_BumbleRating.Test.test_rate_bio" />
       <item itemvalue="Python tests.Python tests for test_EdgeCommands.Test.test_click_bumble_pass_button" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_BumbleAutomation.Test.test_rate_bios_until_end" />
         <item itemvalue="Python tests.Python tests for test_EdgeCommands.Test" />
         <item itemvalue="Python tests.Python tests for test_EdgeCommands.Test.test_click_bumble_pass_button" />
         <item itemvalue="Python tests.Python tests for test_BumbleRating.Test" />
         <item itemvalue="Python tests.Python tests for test_BumbleRating.Test.test_rate_bio" />
-        <item itemvalue="Python tests.Python tests for test_BumbleRating.Test.test_bio_has_dealbreaker" />
       </list>
     </recent_temporary>
   </component>
@@ -329,7 +328,7 @@
       <workItem from="1703479489622" duration="222000" />
       <workItem from="1703479722722" duration="249000" />
       <workItem from="1703479982977" duration="591000" />
-      <workItem from="1703480586177" duration="11420000" />
+      <workItem from="1703480586177" duration="14740000" />
     </task>
     <task id="LOCAL-00001" summary="add an archive">
       <option name="closed" value="true" />
@@ -395,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703484205116</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="rate bio using lowercase">
+      <option name="closed" value="true" />
+      <created>1703495488904</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703495488904</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +417,8 @@
     <MESSAGE value="add bumble rating and tests" />
     <MESSAGE value="add pass and like automation for bumble" />
     <MESSAGE value="add loop for bumble automation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add loop for bumble automation" />
+    <MESSAGE value="rate bio using lowercase" />
+    <option name="LAST_COMMIT_MESSAGE" value="rate bio using lowercase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -441,16 +449,6 @@
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
-          <line>331</line>
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Bumble/BumbleScrapeTools.py</url>
-          <line>317</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Bumble/BumbleRating.py</url>
           <line>217</line>
           <option name="timeStamp" value="90" />
@@ -464,7 +462,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OLD_automation$.coverage" NAME=" Coverage Results" MODIFIED="1703483670933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UnitTests" />
+    <SUITE FILE_PATH="coverage/OLD_automation$.coverage" NAME=" Coverage Results" MODIFIED="1703496944716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UnitTests" />
     <SUITE FILE_PATH="coverage/OLD_automation$main.coverage" NAME="main Coverage Results" MODIFIED="1703494064495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OLD_automation$TEST.coverage" NAME="TEST Coverage Results" MODIFIED="1703287933395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OLD_automation$EdgeCommands.coverage" NAME="EdgeCommands Coverage Results" MODIFIED="1703307835045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Edge" />
