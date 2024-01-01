@@ -1,11 +1,13 @@
 import os
+import uuid
+
 import requests
 import re
 
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
-from Config.Config import PARENT_BUMBLE_CLASS_NAME
+from Config.Config import PARENT_BUMBLE_CLASS_NAME, IMG_DIRECTORY
 
 
 def get_list_of_src_from_element(element):
@@ -22,18 +24,21 @@ def get_list_of_src_from_element(element):
 
 
 def download_images_from_src(src_list, destination):
+    images_url = []
     images = []
     for i, src in enumerate(src_list):
         image_url = 'http:' + src
-        images.append(image_url)
+        images_url.append(image_url)
 
         if not os.path.exists(destination):
             os.makedirs(destination)
 
         r = requests.get(image_url, stream=True)
         if r.status_code == 200:
-            with open(os.path.join(destination, 'image{}.jpg'.format(i)), 'wb') as f:
+            image = os.path.join(destination, 'image{}.jpg'.format(i))
+            with open(image, 'wb') as f:
                 f.write(r.content)
+            images.append(image)
     return images
 
 
@@ -328,7 +333,6 @@ def get_bio_lives_in_location(driver):
     return lives_in
 
 
-
 def get_bio_from_location(driver):
     from_location = ""
     parent_elem = get_location_pills(driver)[0]
@@ -380,3 +384,29 @@ def get_location_pills(driver):
         return location_pills
     except:
         return []
+
+
+def collect_images_for_training(driver):
+    images = download_images_from_bio(driver, IMG_DIRECTORY)
+    bio_name = get_bio_name(driver)
+    images = rename_images(images, bio_name +'-'+ uuid.uuid4().hex[:6].upper())
+    print(images)
+
+
+def rename_images(image_paths, new_name):
+    new_paths = []
+    for i, old_path in enumerate(image_paths, start=1):
+        # Get the directory and extension of the old image
+        dir_name = os.path.dirname(old_path)
+        ext = os.path.splitext(old_path)[1]
+
+        # Create new path
+        new_path = os.path.join(dir_name, f"{new_name}{i}{ext}")
+
+        # Rename the old image to the new path
+        os.rename(old_path, new_path)
+
+        # Add the new path to the list
+        new_paths.append(new_path)
+
+    return new_paths

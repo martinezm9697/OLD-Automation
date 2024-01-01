@@ -3,6 +3,7 @@ from Config.PreferedMatchConfig import DEALBREAKERS
 
 #locations are not rated
 #badges are not rated
+LIKED_KEYWORDS = []
 
 def rate_bio_name(bio):
     if bio.name is None:
@@ -12,6 +13,7 @@ def rate_bio_name(bio):
         return 0
 
     if bio.name.lower() in to_lower_case(Preferred.NAMES):
+        LIKED_KEYWORDS.append(bio.name.lower())
         return 1
     else:
         return 0
@@ -24,6 +26,7 @@ def rate_bio_age(bio):
     if Preferred.MIN_AGE > bio.age > Preferred.MAX_AGE:
         return 0
     else:
+        LIKED_KEYWORDS.append("AGE: " + str(bio.age))
         return 1
 
 
@@ -35,6 +38,7 @@ def rate_bio_photo_verified(bio):
         return 0
 
     if bio.photo_verified == Preferred.PHOTO_VERIFIED:
+        LIKED_KEYWORDS.append("PHOTO VERIFIED")
         return 1
     else:
         return 0
@@ -52,6 +56,7 @@ def rate_bio_occupation(bio):
 
     for preferred_occupation in preferred_occupations_lower:
         if preferred_occupation in bio_occupation_lower:
+            LIKED_KEYWORDS.append(preferred_occupation)
             return 1
     return 0
 
@@ -68,6 +73,7 @@ def rate_bio_school(bio):
 
     for preferred_school in preferred_schools_lower:
         if preferred_school in bio_school_lower:
+            LIKED_KEYWORDS.append(preferred_school)
             return 1
     return 0
 
@@ -79,6 +85,7 @@ def rate_bio_height(bio):
     if Preferred.MIN_HEIGHT > bio.height > Preferred.MAX_HEIGHT:
         return 0
     else:
+        LIKED_KEYWORDS.append("HEIGHT: " + str(bio.height))
         return 1
 
 
@@ -94,6 +101,7 @@ def rate_bio_exercise(bio):
 
     for preferred_exercise in preferred_exercise_lower:
         if preferred_exercise in bio_exercise_lower:
+            LIKED_KEYWORDS.append("EXERCISE: " + preferred_exercise)
             return 1
     return 0
 
@@ -110,6 +118,7 @@ def rate_bio_education(bio):
 
     for preferred_education in preferred_education_lower:
         if preferred_education in bio_education_lower:
+            LIKED_KEYWORDS.append("EDUCATION: " + preferred_education)
             return 1
     return 0
 
@@ -126,6 +135,7 @@ def rate_bio_drinking(bio):
 
     for preferred_drinking in preferred_drinking_lower:
         if preferred_drinking in bio_drinking_lower:
+            LIKED_KEYWORDS.append("DRINKING: " + preferred_drinking)
             return 1
     return 0
 
@@ -142,6 +152,7 @@ def rate_bio_smoking(bio):
 
     for preferred_smoking in preferred_smoking_lower:
         if preferred_smoking in bio_smoking_lower:
+            LIKED_KEYWORDS.append("SMOKING: " + preferred_smoking)
             return 1
     return 0
 
@@ -156,8 +167,9 @@ def rate_bio_gender(bio):
     bio_gender_lower = bio.gender.lower()
     preferred_gender_lower = to_lower_case(Preferred.GENDER)
 
-    for preferred_smoking in preferred_gender_lower:
-        if preferred_smoking in bio_gender_lower:
+    for preferred_gender in preferred_gender_lower:
+        if preferred_gender in bio_gender_lower:
+            LIKED_KEYWORDS.append("GENDER: " + preferred_gender)
             return 1
     return 0
 
@@ -174,6 +186,7 @@ def rate_bio_intentions(bio):
 
     for preferred_intention in preferred_intentions_lower:
         if preferred_intention in bio_intentions_lower:
+            LIKED_KEYWORDS.append("INTENTIONS: " + preferred_intention)
             return 1
     return 0
 
@@ -190,6 +203,7 @@ def rate_bio_family_plans(bio):
 
     for preferred_family_plan in preferred_family_plans_lower:
         if preferred_family_plan in bio_family_plans_lower:
+            LIKED_KEYWORDS.append("FAMILY PLANS: " + preferred_family_plan)
             return 1
     return 0
 
@@ -206,6 +220,7 @@ def rate_bio_star_sign(bio):
 
     for preferred_star_sign in preferred_star_sign_lower:
         if preferred_star_sign in bio_star_sign_lower:
+            LIKED_KEYWORDS.append("STAR SIGN: " + preferred_star_sign)
             return 1
     return 0
 
@@ -222,6 +237,7 @@ def rate_bio_politics(bio):
 
     for preferred_politic in preferred_politics_lower:
         if preferred_politic in bio_politics_lower:
+            LIKED_KEYWORDS.append("POLITICS: " + preferred_politic)
             return 1
     return 0
 
@@ -238,6 +254,7 @@ def rate_bio_religion(bio):
 
     for preferred_religion in preferred_religion_lower:
         if preferred_religion in bio_religion_lower:
+            LIKED_KEYWORDS.append("RELIGION: " + preferred_religion)
             return 1
     return 0
 
@@ -247,9 +264,11 @@ def rate_bio_words(bio):
     for keyword in to_lower_case(Preferred.KEYWORDS):
         if keyword in bio.about_me.lower():
             score += 1
+            LIKED_KEYWORDS.append(keyword)
         for section in to_lower_case(bio.sections):
             if keyword in section:
                 score += 1
+                LIKED_KEYWORDS.append(keyword)
     return score
 
 
@@ -353,6 +372,8 @@ def sum_bio_ratings(bio):
         rate_bio_religion(bio) + \
         rate_bio_words(bio)
 
+    print("LIKED KEYWORDS: " + str(LIKED_KEYWORDS))
+    LIKED_KEYWORDS.clear()
     return rating
 
 

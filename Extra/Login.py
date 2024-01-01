@@ -9,4 +9,4 @@ print("Press Enter to continue...")
 input()
 
 cookies = driver.get_cookies()
-pickle.dump(cookies, open(COOKIES_DIR, "wb"))
+pickle.dump(cookies, open("../"+COOKIES_DIR, "wb"))

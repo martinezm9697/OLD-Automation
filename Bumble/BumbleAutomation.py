@@ -1,10 +1,13 @@
+import uuid
 from time import sleep
 
 from Bumble.BumbleBio import BumbleBio
 from Bumble import BumbleScrapeTools as Scrape, BumbleRating
 from Bumble.BumbleRating import sum_bio_ratings
+from Bumble.BumbleScrapeTools import download_images_from_bio, get_bio_name, rename_images, collect_images_for_training
 from Edge import EdgeCommands
-from Config.Config import IMAGE_DIR
+from Config.Config import IMAGE_DIR, LIKE_THRESHOLD, IMG_DIRECTORY, COLLECT_IMAGES
+from Extra import DataCollect
 
 
 def create_bio(driver):
@@ -57,14 +60,18 @@ def rate_bio(bio):
 
 def rate_bios_until_end(driver):
     while True:
+        sleep(4)
+        if COLLECT_IMAGES:
+            collect_images_for_training(driver)
+
         bumble_bio = create_bio(driver)
         bumble_bio.display_profile()
         rating = rate_bio(bumble_bio)
-        if rating > 7:
+        if rating > LIKE_THRESHOLD:
             print("Liking " + bumble_bio.name)
             like_bio(driver)
         else:
             print("Passing " + bumble_bio.name)
             pass_bio(driver)
-        sleep(2)
+
 

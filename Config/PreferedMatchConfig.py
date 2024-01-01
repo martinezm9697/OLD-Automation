@@ -1,11 +1,13 @@
-DEALBREAKERS = ["Ig:", "Sc:", "Snap:", "Insta:", "Onlyfans:", "Of:", "link in bio", "Conservative", "Trans", "Trans woman"]
+DEALBREAKERS = ["Ig:", "Sc:", "Snap:", "Insta:", "Onlyfans:", "Of:", "link in bio", "Conservative", r"transsexual",
+                r"trans ", "Trans woman", "add me on", "MESSAGE ME ON", r'@\w+', "👻"]
 
 NAMES = []
 
 MIN_AGE = "18"
 MAX_AGE = "30"
 
-OCCUPATIONS = ["TECHNOLOGY", "ENGINEER", "SCIENCE", "ARTS", "HEALTHCARE", "BUSINESS", "EDUCATION", "OTHER"]
+OCCUPATIONS = ["TECHNOLOGY", r"ENGINEER", "SCIENCE", "ART", "HEALTHCARE", "BUSINESS", "EDUCATION", "OTHER", "medical",
+               r'research', "AI"]
 
 PHOTO_VERIFIED = True
 
@@ -34,7 +36,16 @@ POLITICS = ["LIBERAL"]
 
 RELIGION = ["AGNOSTIC", "ATHEIST", "SPIRITUAL", "OTHER"]
 
-KEYWORDS = ["VIDEO GAMES", "ANIME", "MANGA", "COMICS", "MOVIES", "TV", "NETFLIX", "OVERWATCH"]
+KEYWORDS = ["VIDEO GAMES", "OVERWATCH", "GAMING", "GAMER", "MINECRAFT",
+            "ANIME", "MANGA", "COMICS", "MOVIES", "TV", "NETFLIX",  "NERD", "GEEK", "COSPLAY",
+            "HOMEBODY", "INTROVERT", "INTROVERTED",
+            "cuddling", "CUDDLE", "CUDDLES", "CUDDLE BUDDY",
+            "TATTOOS", "SUSHI", "PIZZA",
+            "THICK", "STACHE RIDING", "SHORT GIRL", "SHORT KING", "CHUBBY",
+            "SPOOKY", "WHICHY", "WITCH", "HORROR", "SCARY", "SPOOKY", "HALLOWEEN",
+            r"invisible", r'telekinesis', 'telepathy', r'teleport',
+            'fiesty', 'nice', "funny", "WEIRD", "QUIRKY",
+            "STEM", ]
 
 LOCATIONS = ["MEXICO", "MX"]
 
